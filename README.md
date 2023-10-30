@@ -1,1 +1,1 @@
-# codingschool_winter
+# CodingSchool - listopad až prosinec
