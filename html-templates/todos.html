@@ -13,9 +13,49 @@
         <input type="text" name="todo" class="input" required>
         <input type="submit" value="Vytvořit úkol" class="button">
       </form>
+      <a href="#">Odhlásit se</a>
     </section>
     <section>
+      <div class="todo-list">
+        <div class="todo-heading">
+          <button type="button" class="expand-toggle">
+            👉
+          </button>
+          <h3>
+            1. 11. 2023
+            <small>(5 úkolů)</small>
+          </h3>
+        </div>
+        <div class="todo-items">
+          <div class="todo-item">
+            <p><i>10:38</i> - popis úkolu s nějakým rozumným omezením na délku</p>
+            <button type="button" class="todo-action">
+              ☑️
+            </button>
+            <button type="button" class="todo-action">
+              ✏️️
+            </button>
+            <button type="button" class="todo-action">
+              🗑️
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div class="todo-list todo-list--expanded">
+        <div class="todo-heading">
+          <button type="button" class="expand-toggle">
+            👇
+          </button>
+          <h3>
+            1. 11. 2023
+            <small>(5 úkolů)</small>
+          </h3>
+        </div>
+        <div class="todo-items">
+          ...
+        </div>
+      </div>
     </section>
   </main>
   <footer class="center">
@@ -24,3 +64,4 @@
 </div>
 </body>
 </html>
+-
