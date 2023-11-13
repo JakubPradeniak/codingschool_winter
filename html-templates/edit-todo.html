@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="../style/style.css">
+
   <title>Úkoly</title>
 </head>
 <body>
@@ -23,7 +30,7 @@
       </p>
       <form action="edit-todo.html" method="post">
         <label for="todo">Text úkolu</label>
-        <textarea id="todo" name="name" rows="8" required>popis úkolu s nějakým rozumným omezením na délku</textarea>
+        <textarea id="todo" name="name" rows="8" class="input" required>popis úkolu s nějakým rozumným omezením na délku</textarea>
         <input type="submit" name="edit" value="Uložit změny" class="button" />
         <input type="submit" name="done" value="Hotovo" class="button button--secondary" />
         <input type="submit" name="delete" value="Odstranit" class="button button--danger" />
