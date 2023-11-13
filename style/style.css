@@ -69,6 +69,16 @@ nav {
     .nav-links {
         display: flex;
         gap: 3.5rem;
+        font-size: 1.25rem;
+
+        > a {
+            color: var(--font-color);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     /*.nav-links {*/
@@ -77,4 +87,128 @@ nav {
     /*        margin-right: 56px;*/
     /*    }*/
     /*}*/
+}
+
+.homepage-heading {
+    font-size: 3rem;
+    margin-top: 3.625rem;
+}
+
+.app-intro {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-top: 2rem;
+
+    > img {
+        width: 27.5rem;
+    }
+}
+
+.homepage-how-to {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.how-to-steps {
+    margin-top: 2.25rem;
+    margin-left: 2.75rem;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 4.875rem;
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Register */
+.panel-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.625rem;
+
+    > a {
+        position: absolute;
+        left: 2.5rem;
+    }
+}
+
+.panel-form {
+    margin-top: 4.875rem;
+    display: flex;
+    flex-direction: column;
+
+    .button {
+        margin-top: 4.125rem;
+    }
+}
+
+.input-label, .checkbox-label {
+    margin-top: 2.25rem;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.input {
+    margin-top: 1.625rem;
+    border-radius: 0.5rem;
+    background: var(--backgound-color);
+    box-shadow: 0.25rem 0.25rem 0.625rem 0.25rem var(--drop-shadow);
+    font-size: 1.5rem;
+    padding: 1.125rem 0.5rem;
+    border: 0;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0;
+    border-radius: 0.25rem;
+    background: var(--backgound-color);
+    box-shadow: 0.125rem 0.125rem 0.375rem 0.125rem var(--drop-shadow);
+}
+
+.button {
+    border-radius: 0.5rem;
+    background: var(--primary-color);
+    box-shadow: 0.25rem 0.25rem 0.5rem 0 var(--drop-shadow);
+    font-size: 1.25rem;
+    color: var(--font-color-light);
+    padding: 1.25rem 1.625rem;
+    border: 0;
+    cursor: pointer;
+}
+
+.button--right {
+    align-self: flex-end;
+}
+
+.link {
+    color: var(--font-color-link);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.panel-link {
+    text-align: center;
+    margin-top: 4rem;
 }
