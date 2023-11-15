@@ -152,6 +152,10 @@ footer {
     }
 }
 
+.panel-form--edit-todo {
+    margin-top: 2rem;
+}
+
 .input-label, .checkbox-label {
     margin-top: 2.25rem;
 
@@ -165,8 +169,8 @@ footer {
     border-radius: 0.5rem;
     background: var(--backgound-color);
     box-shadow: 0.25rem 0.25rem 0.625rem 0.25rem var(--drop-shadow);
-    font-size: 1.5rem;
-    padding: 1.125rem 0.5rem;
+    font-size: 1.15rem;
+    padding: 1rem 0.75rem;
     border: 0;
 }
 
@@ -188,7 +192,7 @@ footer {
     border-radius: 0.5rem;
     background: var(--primary-color);
     box-shadow: 0.25rem 0.25rem 0.5rem 0 var(--drop-shadow);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--font-color-light);
     padding: 1.25rem 1.625rem;
     border: 0;
