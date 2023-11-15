@@ -71,6 +71,7 @@ nav {
         gap: 3.5rem;
         font-size: 1.25rem;
 
+        /* TODO: refactor to reduce redundancy */
         > a {
             color: var(--font-color);
             text-decoration: none;
@@ -125,6 +126,10 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    &.center {
+        justify-content: center;
     }
 }
 
@@ -257,5 +262,27 @@ footer {
 
     .button:nth-child(2) {
         margin-left: auto;
+    }
+}
+
+.administration-heading {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    > h1 {
+        font-weight: 700;
+    }
+
+    /* TODO: show in class!! */
+    > a:nth-child(3) {
+        margin-left: auto;
+
+        color: var(--font-color);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
