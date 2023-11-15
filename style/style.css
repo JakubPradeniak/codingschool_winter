@@ -4,10 +4,10 @@
 
     --font-color: #000000;
     --font-color-light: var(--backgound-color);
-    --font-color-link: var(--primary-color);
+    --font-color-link: var(--primary-color); /* TODO: change color so the contrast ratio will be better */
 
-    --alert-error: #EC4F4F;
-    --alert-success: #009418;
+    --message-error: #C52525;
+    --message-success: #007418;
 
     --gradient-blue: #28BBEA3D;
     --backdrop-color: #00000070;
@@ -211,4 +211,21 @@ footer {
 .panel-link {
     text-align: center;
     margin-top: 4rem;
+}
+
+
+.message {
+    border-radius: 0.375rem;
+    color: var(--font-color-light);
+    margin: 1.5rem 0;
+    padding: 0.375rem 1rem;
+    text-align: center;
+}
+
+.message--error {
+    background: var(--message-error);;
+}
+
+.message--success {
+    background: var(--message-success);
 }
