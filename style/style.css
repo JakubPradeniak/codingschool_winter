@@ -199,7 +199,7 @@ footer {
     box-shadow: 0.25rem 0.25rem 0.5rem 0 var(--drop-shadow);
     font-size: 1.15rem;
     color: var(--font-color-light);
-    padding: 1.25rem 1.625rem;
+    padding: 1rem 1.625rem;
     border: 0;
     cursor: pointer;
 }
@@ -283,5 +283,14 @@ footer {
         &:hover {
             text-decoration: underline;
         }
+    }
+}
+
+.new-todo-form {
+    display: flex;
+    gap: 2rem;
+
+    .input {
+        margin-top: 0;
     }
 }
