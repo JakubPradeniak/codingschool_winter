@@ -274,8 +274,7 @@ footer {
         font-weight: 700;
     }
 
-    /* TODO: show in class!! */
-    > a:nth-child(3) {
+    .logout {
         margin-left: auto;
 
         color: var(--font-color);
