@@ -199,6 +199,18 @@ footer {
     cursor: pointer;
 }
 
+.button--secondary {
+    border: 1px solid var(--primary-color);
+    background: var(--backgound-color);
+    color: var(--font-color);
+}
+
+.button--danger {
+    border: 1px solid var(--message-error);
+    background: var(--backgound-color);
+    color: var(--font-color);
+}
+
 .button--right {
     align-self: flex-end;
 }
@@ -232,4 +244,18 @@ footer {
 
 .message--success {
     background: var(--message-success);
+}
+
+.todo-date-created {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.edit-todo-buttons {
+    display: flex;
+    gap: 3.125rem;
+
+    .button:nth-child(2) {
+        margin-left: auto;
+    }
 }
