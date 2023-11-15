@@ -74,6 +74,7 @@ nav {
         font-size: 1.25rem;
 
         /* TODO: refactor to reduce redundancy */
+
         > a {
             color: var(--font-color);
             text-decoration: none;
@@ -313,5 +314,70 @@ footer {
         border-radius: 0.5rem;
         background: var(--pagination-background);
         box-shadow: 0.25rem 0.25rem 0.5rem 0 var(--drop-shadow);
+    }
+}
+
+.todos {
+    margin-top: 5rem;
+}
+
+.todo-list {
+    margin-top: 1rem;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    .todo-heading {
+        display: flex;
+        gap: 0.5rem;
+
+        & h3 {
+            font-size: 1.5rem;
+
+            > small {
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+        }
+    }
+
+    .expand-toggle {
+        font-size: 1.25rem;
+    }
+
+    .todo-action {
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 0.25rem;
+    }
+
+    .todo-items {
+        display: none;
+        padding-left: 2.5rem;
+        margin-top: 1rem;
+    }
+
+    .todo-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        /* TODO: show in class!! */
+        > button:nth-child(2) {
+            margin-left: auto;
+        }
+    }
+}
+
+.todo-list--expanded {
+    .todo-items {
+        display: block;
     }
 }
