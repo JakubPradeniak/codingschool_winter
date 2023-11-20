@@ -58,6 +58,15 @@ body {
     width: 56rem;
 }
 
+.nav-link {
+    color: var(--font-color);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -72,17 +81,6 @@ nav {
         display: flex;
         gap: 3.5rem;
         font-size: 1.25rem;
-
-        /* TODO: refactor to reduce redundancy */
-
-        > a {
-            color: var(--font-color);
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
     }
 
     /*.nav-links {*/
@@ -279,13 +277,6 @@ footer {
 
     .logout {
         margin-left: auto;
-
-        color: var(--font-color);
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }
 
@@ -369,7 +360,6 @@ footer {
             margin-top: 0;
         }
 
-        /* TODO: show in class!! */
         > button:nth-child(2) {
             margin-left: auto;
         }
