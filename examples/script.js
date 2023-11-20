@@ -141,7 +141,7 @@ function dayOfWeek(engShorthand) {
     }
 }
 
-dayOfWeek('jghgkjgkjhgkjhgkjghj');
+dayOfWeek('sa');
 
 function switchMultipleCases(value) {
     switch (value) {
@@ -161,3 +161,140 @@ function switchMultipleCases(value) {
 switchMultipleCases(2);
 switchMultipleCases(4);
 switchMultipleCases(10);
+
+const day = "Sobota";
+
+// Template string - interpolace proměnné do řetězce
+console.log(`Testovací řetězec ${day}`);
+
+// Práce s datumy
+console.log('----- Datumy -----');
+const myDate = new Date(1700504115000);
+
+// 1700504115
+
+console.log(myDate.toString());
+
+console.log(myDate.toLocaleDateString());
+console.log(myDate.toLocaleTimeString());
+console.log(myDate.toLocaleString());
+
+// Logické operátory
+console.log('----- Logické operátory -----');
+const a = 5;
+const b = 7
+const c = 2;
+const d = 7;
+
+console.log(a < b);
+
+console.log('- A (&&) -');
+console.log(a < b && b < c);
+console.log(a < b && b < c && b === d);
+console.log(a < b && b > c && b === d);
+
+console.log('- NEBO (||) -');
+console.log(a < b || b < c);
+console.log(a < b || b < c || b === d);
+console.log(a < b || b > c || b === d);
+
+console.log(a > b || b < c);
+console.log(a > b || b < c || b === d);
+console.log(a > b || b > c || b === d);
+
+console.log('- kombinace -');
+console.log(a > b || b > c && b !== d);
+
+//                      celá závorka se vyhodnotí na false
+console.log(a > b || (b > c && b !== d));
+
+// použití negace - např. validace formulářů
+// pole1 !== '' || pole2 !== '' || pole3 !== ''
+// !(pole1 === '' && pole2 === '' && pole3 === '')
+
+console.log('----- Inkrementace/Dekrementace -----');
+let cislo = 5;
+
+console.log(cislo++);
+console.log(cislo);
+console.log(cislo--);
+console.log(cislo); // 5
+console.log(++cislo); // 6
+
+//            6     6 -> 7    7
+console.log(cislo, cislo++, cislo);
+//            7        8      8
+console.log(cislo, ++cislo, cislo);
+
+console.log('----- Operátor mocniny -----');
+console.log(4 ** 2);
+console.log(4 ** 3);
+
+console.log('----- Cykly -----');
+let cars = ['Škoda', 'Peugeot', 'Mercedes', 'Seat'];
+
+console.log('for');
+for (let i = 0; i < cars.length; i++) {
+    console.log(cars[i]);
+    // < id="car-${i}">jmeno auta</>
+}
+
+console.log('for - in');
+for (let carIndex in cars) {
+    console.log(cars[carIndex]);
+}
+
+console.log('for - of');
+for (let car of cars) {
+    console.log(car);
+}
+
+console.log('----- Iterace nad objektem -----');
+const car = {
+    brand: 'Škoda',
+    model: 'Octavia',
+    engineType: 'TSI1.4',
+}
+
+for (let carKey in car) {
+    console.log(carKey, car[carKey]);
+}
+
+// toto skončí chybou, protože náš objekt nemá nedifnovyný iterátor (funkci, které by objekt prošla)
+// for (let carValue of car) {
+//     console.log(carValue);
+// }
+
+console.log(car.model);
+
+console.log('while cyklus');
+
+let carInArray = 'Mercedes';
+while(carInArray !== 'Mercedes') {
+    console.log(`Auto: ${carInArray}`);
+    carInArray = cars.pop();
+}
+
+do {
+    console.log(`Auto v do-while: ${carInArray}`);
+    carInArray = cars.pop();
+} while (carInArray !== 'Mercedes')
+
+console.log('----- Break v cyklech -----');
+cars = ['Škoda', 'Peugeot', 'Mercedes', 'Seat'];
+for (let car of cars) {
+    console.log(`Auto - for-of: ${car}`);
+    if (car === 'Mercedes') {
+        break;
+    }
+}
+
+console.log('----- Continue v cyklech -----');
+for (let car of cars) {
+    if (car === 'Mercedes') {
+        continue;
+    }
+    console.log(`Auto - for-of: ${car}`);
+}
+
+console.log(cars);
