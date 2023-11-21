@@ -281,7 +281,11 @@ do {
 } while (carInArray !== 'Mercedes')
 
 console.log('----- Break v cyklech -----');
+
+
 cars = ['Škoda', 'Peugeot', 'Mercedes', 'Seat'];
+
+
 for (let car of cars) {
     console.log(`Auto - for-of: ${car}`);
     if (car === 'Mercedes') {
@@ -298,3 +302,66 @@ for (let car of cars) {
 }
 
 console.log(cars);
+
+console.log('----- forEach cyklus -----');
+
+console.log('----- forEach cyklus -> anonymní šipková fce -----');
+cars.forEach((car, index, array) => {
+    console.log(car, index, array);
+    if (car === 'Peugeot') {
+        array[index] = 'Opel';
+    }
+});
+
+console.log('----- forEach cyklus -> anonymní klasická fce -----');
+cars.forEach(function (car, index, array) {
+    console.log(car, index, array);
+    if (car === 'Peugeot') {
+        array[index] = 'Opel';
+    }
+});
+
+console.log('----- forEach cyklus -> pojmenovaná fce -----');
+function carsCallback(car, index, array) {
+    console.log(car, index, array);
+    if (car === 'Opel') {
+        array[index] = 'Peugeot';
+    }
+}
+
+cars.forEach(carsCallback);
+
+console.log(cars);
+
+console.log('----- klasická fce -----');
+function mojeFunkce(zprava) {
+    console.log(zprava);
+}
+
+console.log('----- šipková fce -----');
+const mojeFunkce2 = (zprava) => {
+    console.log(zprava);
+}
+
+mojeFunkce('test');
+mojeFunkce2('test 2');
+
+console.log('----- array.map -----');
+
+const modifiedCars = cars.map((car) => {
+    return car.toLocaleUpperCase();
+});
+
+const modifiedCars2 = cars.map((car) => car.toLocaleLowerCase());
+
+console.log(modifiedCars, modifiedCars2, cars);
+
+console.log('----- array.filter -----');
+const filteredCars = cars.filter((car) => {
+    return car !== 'Mercedes';
+});
+
+const filteredCars2 = cars.filter((car) => car !== 'Seat');
+
+
+console.log(filteredCars, filteredCars2, cars);
