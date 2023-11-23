@@ -1,3 +1,4 @@
+// Dialogy
 function handleDialogOpen() {
     const openDialogElements = document.getElementsByClassName('open-dialog');
 
@@ -22,6 +23,44 @@ function handleDialogOpen() {
         }
     }
 }
+
+// Notifikační okna - Toasty
+function removeToast(toastId) {
+    const toast = document.getElementById(toastId);
+    if (toast) {
+        toast.remove();
+    }
+}
+
+function removeAllToasts() {
+    const toasts = document.getElementsByClassName('toast');
+    for (let toast of toasts) {
+        toast.remove();
+    }
+}
+
+function createToast(message,  delay= 3000) {
+    const toastId = `toast-${Math.random()}`;
+
+    const toast = document.createElement('div');
+
+    toast.setAttribute('id', toastId);
+    toast.classList.add('toast');
+
+    const em = document.createElement('em');
+    em.innerText = message;
+
+    toast.appendChild(em);
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        removeToast(toastId);
+    }, delay);
+
+    return toastId;
+}
+
 
 // Počkáme na dokončení konstrukce DOMu.
 document.addEventListener('DOMContentLoaded', () => {
