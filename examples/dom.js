@@ -62,7 +62,21 @@ if (heading) {
 }
 
 // vyskakovací okno - notifikace - Toast
-function createToast(message) {
+function removeToast(toastId) {
+    const toast = document.getElementById(toastId);
+    if (toast) {
+        toast.remove();
+    }
+}
+
+function removeAllToasts() {
+    const toasts = document.getElementsByClassName('toast');
+    for (let toast of toasts) {
+        toast.remove();
+    }
+}
+
+function createToast(message,  delay= 3000) {
     const toastId = `toast-${Math.random()}`;
 
     const toast = document.createElement('div');
@@ -85,24 +99,11 @@ function createToast(message) {
 
     document.body.appendChild(toast);
 
+    setTimeout(() => {
+        removeToast(toastId);
+    }, delay);
+
     return toastId;
 }
 
-function removeToast(toastId) {
-    const toast = document.getElementById(toastId);
-    if (toast) {
-        toast.remove();
-    }
-}
-
-function removeAllToasts() {
-    const toasts = document.getElementsByClassName('toast');
-    for (let toast of toasts) {
-        toast.remove();
-    }
-}
-
-const toastId = createToast('Testovací zpráva');
-console.log(toastId);
-
-removeAllToasts();
+const toastId = createToast('Testovací zpráva', 10000);
