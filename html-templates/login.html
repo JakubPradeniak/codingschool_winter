@@ -31,7 +31,7 @@
     <div class="message message--success">
       Akce se povedla!
     </div>
-    <form action="login.html" method="post" class="panel-form">
+    <form name="login" action="login.html" method="post" class="panel-form" onsubmit="return validateForm('login')" novalidate>
       <label for="email" class="input-label">Email</label>
       <input type="email" name="email" id="email" class="input" required>
       <label for="password" class="input-label">Heslo</label>

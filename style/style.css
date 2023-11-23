@@ -186,6 +186,14 @@ footer {
     font-size: 1.15rem;
     padding: 1rem 0.75rem;
     border: 0;
+
+    &:disabled {
+        opacity: 0.75;
+    }
+
+    &:invalid {
+        border: 1px solid var(--message-error);
+    }
 }
 
 .checkbox-label {

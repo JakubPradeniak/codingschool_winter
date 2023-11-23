@@ -61,6 +61,51 @@ function createToast(message,  delay= 3000) {
     return toastId;
 }
 
+// Validace formulářů
+function validateInput(input) {
+    // Jak zjistit název tagu
+    // if (input.localName === 'textarea' && input.value.length === 0) {
+    //     return false;
+    // }
+
+    switch (input.type) {
+        case 'email':
+            return {
+                result: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi.test(input.value),
+                message: 'Zadejte validní email.',
+            };
+        case 'password':
+            return {
+                result: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.value),
+                message: 'Heslo můsí obsahovat číslici, velké a malé písmeno a musí mít nejméne 8 znaků.'
+            };
+        default:
+            return {
+                result: input.value.length !== 0,
+                message: 'Pole nesmí být prázdné.',
+            }
+    }
+}
+
+function validateForm(formName) {
+    const formChildren = document.forms[formName].children;
+    console.log(formChildren);
+    let isValid = true;
+    if (formChildren.length > 0) {
+        for (const formElement of formChildren) {
+            if (formElement.name && formElement.required) {
+                const validationResult = validateInput(formElement);
+                isValid = validationResult.result && isValid;
+
+                if (!validationResult.result) {
+                    createToast(validationResult.message, 10000);
+                }
+            }
+        }
+    }
+
+    return isValid;
+}
 
 // Počkáme na dokončení konstrukce DOMu.
 document.addEventListener('DOMContentLoaded', () => {
