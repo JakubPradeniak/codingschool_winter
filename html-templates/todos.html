@@ -3,23 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="../style/style.css">
+
   <title>Úkoly</title>
 </head>
 <body>
 <div class="panel panel--large">
   <main>
-    <section class="heading">
-      <form action="todos.html" method="post">
-        <input type="text" name="todo" class="input" required>
+    <section class="administration-heading">
+      <form action="todos.html" method="post" class="new-todo-form">
+        <input type="text" name="todo" class="input" placeholder="Nový úkol" required>
         <input type="submit" value="Vytvořit úkol" class="button">
       </form>
-      <a href="#">Odhlásit se</a>
+      <a href="#" class="logout nav-link">Odhlásit se</a>
     </section>
-    <section>
+    <section class="todos">
       <div class="todo-list">
         <div class="todo-heading">
-          <button type="button" class="expand-toggle">
+          <button type="button" class="todo-action expand-toggle">
             👉
+          </button>
+          <h3>
+            1. 11. 2023
+            <small>(5 úkolů)</small>
+          </h3>
+        </div>
+        <div class="todo-items">
+            ...
+        </div>
+      </div>
+
+      <div class="todo-list todo-list--expanded">
+        <div class="todo-heading">
+          <button type="button" class="todo-action expand-toggle">
+            👇
           </button>
           <h3>
             1. 11. 2023
@@ -39,21 +61,6 @@
               🗑️
             </button>
           </div>
-        </div>
-      </div>
-
-      <div class="todo-list todo-list--expanded">
-        <div class="todo-heading">
-          <button type="button" class="expand-toggle">
-            👇
-          </button>
-          <h3>
-            1. 11. 2023
-            <small>(5 úkolů)</small>
-          </h3>
-        </div>
-        <div class="todo-items">
-          ...
         </div>
       </div>
     </section>
