@@ -43,13 +43,17 @@
       <a href="register.html.html" class="link">Vytvořit účet</a>
     </p>
   </main>
-  <dialog id="forgotten-password" class="dialog">
-    <form action="forgotten-password.html" method="post">
-      <label for="reg-email" class="input-label">Registrační email</label>
-      <input type="email" name="email" id="reg-email" class="input" required>
-      <input type="submit" value="Onnovit zapomenuté heslo" class="button button--full">
-    </form>
-  </dialog>
 </div>
+<dialog id="forgotten-password" class="dialog">
+  <div class="close-dialog-wrapper">
+    <span class="close-dialog">✕</span>
+  </div>
+  <form action="forgotten-password.html" method="post" class="panel-form panel-form--dialog">
+    <label for="reg-email" class="input-label">Registrační email</label>
+    <input type="email" name="email" id="reg-email" class="input" required>
+    <input type="submit" value="Onnovit zapomenuté heslo" class="button button--full button--dialog">
+  </form>
+</dialog>
+<script src="../script/script.js"></script>
 </body>
 </html>
