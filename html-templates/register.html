@@ -23,7 +23,7 @@
     <h1>Vytvořit účet</h1>
   </header>
   <main>
-    <form action="register.html" method="post" class="panel-form">
+    <form name="register" action="register.html" method="post" class="panel-form" onsubmit="return validateForm('register')" novalidate>
       <label for="email" class="input-label">Email</label>
       <input type="email" name="email" id="email" class="input" required>
       <label for="password" class="input-label">Heslo</label>
@@ -42,5 +42,6 @@
     </p>
   </main>
 </div>
+<script src="../script/script.js"></script>
 </body>
 </html>
