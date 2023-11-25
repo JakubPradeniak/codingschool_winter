@@ -68,6 +68,18 @@ function validateInput(input) {
     //     return false;
     // }
 
+    if (input.dataset.compare) {
+        const inputToCompare = document.getElementById(input.dataset.compare);
+
+
+        if (inputToCompare) {
+            return {
+                result: input.value === inputToCompare.value,
+                message: input.dataset.message,
+            }
+        }
+    }
+
     switch (input.type) {
         case 'email':
             return {
@@ -77,8 +89,13 @@ function validateInput(input) {
         case 'password':
             return {
                 result: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(input.value),
-                message: 'Heslo můsí obsahovat číslici, velké a malé písmeno a musí mít nejméne 8 znaků.'
+                message: 'Heslo musí obsahovat číslici, velké a malé písmeno a musí mít nejméne 8 znaků.',
             };
+        case 'checkbox':
+            return {
+                result: input.checked,
+                message: 'Pro dokončení registrace musíte souhlasit s Podmínkami použití.',
+            }
         default:
             return {
                 result: input.value.length !== 0,
@@ -89,10 +106,16 @@ function validateInput(input) {
 
 function validateForm(formName) {
     const formChildren = document.forms[formName].children;
-    console.log(formChildren);
     let isValid = true;
     if (formChildren.length > 0) {
-        for (const formElement of formChildren) {
+        for (let formElement of formChildren) {
+            if (formElement.classList.contains('checkbox-label')) {
+                const checkbox = formElement.getElementsByTagName('input');
+                if (checkbox.length) {
+                    formElement = checkbox[0];
+                }
+            }
+
             if (formElement.name && formElement.required) {
                 const validationResult = validateInput(formElement);
                 isValid = validationResult.result && isValid;

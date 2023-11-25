@@ -191,9 +191,9 @@ footer {
         opacity: 0.75;
     }
 
-    &:invalid {
-        border: 1px solid var(--message-error);
-    }
+    /*&:invalid {*/
+    /*    border: 1px solid var(--message-error);*/
+    /*}*/
 }
 
 .checkbox-label {
