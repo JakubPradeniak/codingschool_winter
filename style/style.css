@@ -424,7 +424,6 @@ footer {
     border-radius: 0.75rem;
     box-shadow: 0.25rem 0.25rem 1rem var(--drop-shadow);
     position: fixed;
-    top: 2rem;
     right: 2rem;
     background: var(--backgound-color);
 }
