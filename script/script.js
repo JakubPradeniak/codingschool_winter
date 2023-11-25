@@ -1,3 +1,79 @@
+// Pomocné konstanty
+const FONT_SIZE = 16;
+
+
+// Třída pro vytváření a správu Toastů
+class Toasts {
+    /*
+    * Budeme ukládat ve formátu
+    *  {
+    *       id: string, - ID které jsem nastavil HTML elementu
+    *       element: htmlElement, - samotný HTML element
+    *  }
+    * */
+    toastsArray = [];
+
+    removeToast(toastId) {
+        const toast = this.toastsArray.find(
+            (toastObject) => toastObject.id === toastId
+        );
+
+        if (toast) {
+            toast.element.remove();
+            this.toastsArray = this.toastsArray.filter(
+                (toastObject) => toastObject.id !== toastId
+            );
+        }
+    }
+
+    removeAllToasts() {
+        for (let toast of this.toastsArray) {
+            toast.element.remove();
+        }
+        this.toastsArray = [];
+    }
+
+    createToast(message,  delay= 3000) {
+        const toastId = `toast-${Math.random()}`;
+
+        const toast = document.createElement('div');
+        toast.setAttribute('id', toastId);
+        toast.classList.add('toast');
+        const em = document.createElement('em');
+        em.innerText = message;
+        toast.appendChild(em);
+
+        // Výpočet kde se toast zobrazí
+        let top = 2;
+
+        this.toastsArray.forEach((toastObject) => {
+            // clientHeight je v pixelech -> musíme přepočítat na remy
+            const toastHeight = Math.round(toastObject.element.clientHeight / FONT_SIZE);
+
+            top += 1 + toastHeight;
+        });
+
+        toast.style.top = `${top}rem`;
+
+        // Uložení nového toasu do pole
+        this.toastsArray.push({
+            id: toastId,
+            element: toast,
+        });
+
+        // Připojení k HTML stránce
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            this.removeToast(toastId);
+        }, delay);
+    }
+}
+
+// Vytvoření instance pro toasty, abychom s ní mohli pracovat
+const toasts = new Toasts();
+
+
 // Dialogy
 function handleDialogOpen() {
     const openDialogElements = document.getElementsByClassName('open-dialog');
@@ -22,43 +98,6 @@ function handleDialogOpen() {
             }
         }
     }
-}
-
-// Notifikační okna - Toasty
-function removeToast(toastId) {
-    const toast = document.getElementById(toastId);
-    if (toast) {
-        toast.remove();
-    }
-}
-
-function removeAllToasts() {
-    const toasts = document.getElementsByClassName('toast');
-    for (let toast of toasts) {
-        toast.remove();
-    }
-}
-
-function createToast(message,  delay= 3000) {
-    const toastId = `toast-${Math.random()}`;
-
-    const toast = document.createElement('div');
-
-    toast.setAttribute('id', toastId);
-    toast.classList.add('toast');
-
-    const em = document.createElement('em');
-    em.innerText = message;
-
-    toast.appendChild(em);
-
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        removeToast(toastId);
-    }, delay);
-
-    return toastId;
 }
 
 // Validace formulářů
@@ -121,7 +160,7 @@ function validateForm(formName) {
                 isValid = validationResult.result && isValid;
 
                 if (!validationResult.result) {
-                    createToast(validationResult.message, 10000);
+                    toasts.createToast(validationResult.message, 10000);
                 }
             }
         }
