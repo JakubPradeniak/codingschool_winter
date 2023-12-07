@@ -57,7 +57,7 @@ function higherOrderReturn(): Closure
     );
 }
 
-$helloWorld = function (): void
+function helloWorld(): void
 {
     echo "<br />Hello World!!";
 };
@@ -73,8 +73,8 @@ writeName(randomName());
 
 echo "<br /><br />";
 
-funcWithCallback($helloWorld);
-funcWithCallbackTwo(Closure::fromCallable($helloWorld));
+funcWithCallback("helloWorld");
+funcWithCallbackTwo(Closure::fromCallable("helloWorld"));
 
 $function = higherOrderReturn();
 
