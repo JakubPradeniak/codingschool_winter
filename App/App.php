@@ -15,6 +15,7 @@ class App {
         try {
             EnvParser::parse("../.env");
         } catch(EnvFileNotFoundException $e) {
+            // TODO: nahradit lepším zpracováním chyby
             echo "Chyba aplikace...";
             die();
         }
@@ -22,6 +23,7 @@ class App {
 
     public function run(): void
     {
+        // TODO: doopravdy spustit aplikaci
         echo "Aplikace běží...";
     }
 }
