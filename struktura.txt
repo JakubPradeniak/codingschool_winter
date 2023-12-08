@@ -1,0 +1,12 @@
+tmp/
+logs/
+...
+public/ - přístup z internetu
+www/ - přístup z internetu
+    styly
+    js
+    obrázky
+    ...
+    index.php
+
+App/
