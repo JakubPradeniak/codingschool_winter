@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use App\App;
+
 include '../App/autoloader.php';
 
-echo "Aplikace běží...";
+$app = new App();
+
+$app->run();
