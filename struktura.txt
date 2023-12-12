@@ -10,3 +10,4 @@ www/ - přístup z internetu
     index.php
 
 App/
+.env
