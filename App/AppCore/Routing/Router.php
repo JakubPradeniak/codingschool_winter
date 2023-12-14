@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\AppCore\Routing;
 
 use App\AppCore\Enums\HttpMethod;
+use App\Routes\Routes;
 use Closure;
 use App\AppCore\Exceptions\RouteNotFoundException;
 
@@ -122,7 +123,7 @@ class Router
             if ($match === 1 && $route->method->value === $requestMethod) {
                 if ($route->protected && !isset($_SESSION['loggedUser'])) {
                     // Přesměrování na hlavní stránku
-                    // TODO: vytvořit pomocnou třídu pro přesměrování
+                    Url::redirect(Routes::AppError);
                 }
 
                 $params = []; // pomocná proměnná pro uložení parametrů z odkazu -> ['id' => 5]
