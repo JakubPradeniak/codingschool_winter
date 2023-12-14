@@ -55,30 +55,30 @@ class Router
     }
 
     // Cesty, které zobrazují obsah
-    public function get(string $route, array|Closure $handler, bool $protected = false): Router
+    public function get(Routes $route, array|Closure $handler, bool $protected = false): Router
     {
-        $this->addRoute(HttpMethod::Get, $route, $handler, $protected);
+        $this->addRoute(HttpMethod::Get, $route->value, $handler, $protected);
         return $this;
     }
 
     // Cesty pro vytváření nového obsahu
-    public function post(string $route, array|Closure $handler, bool $protected = false): Router
+    public function post(Routes $route, array|Closure $handler, bool $protected = false): Router
     {
-        $this->addRoute(HttpMethod::Post, $route, $handler, $protected);
+        $this->addRoute(HttpMethod::Post, $route->value, $handler, $protected);
         return $this;
     }
 
     // Cesty pro úpravu existujícího obsahu
-    public function patch(string $route, array|Closure $handler, bool $protected = false): Router
+    public function patch(Routes $route, array|Closure $handler, bool $protected = false): Router
     {
-        $this->addRoute(HttpMethod::Patch, $route, $handler, $protected);
+        $this->addRoute(HttpMethod::Patch, $route->value, $handler, $protected);
         return $this;
     }
 
     // Cesty pro mazání obsahu
-    public function delete(string $route, array|Closure $handler, bool $protected = false): Router
+    public function delete(Routes $route, array|Closure $handler, bool $protected = false): Router
     {
-        $this->addRoute(HttpMethod::Delete, $route, $handler, $protected);
+        $this->addRoute(HttpMethod::Delete, $route->value, $handler, $protected);
         return $this;
     }
 
