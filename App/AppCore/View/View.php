@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\AppCore\View;
 
+use App\AppCore\Utils\Debug;
+
 class View
 {
     /**
@@ -19,7 +21,7 @@ class View
 
     public function render(): void
     {
-        $templateFile = __APP_ROOT__ . 'App/Views/' . $this->template . '.php';
+        $templateFile = __APP_ROOT__ . getenv('APP_PRIVATE_SUB_FOLDERS') . 'App/Views/' . $this->template . '.php';
 
         if (file_exists($templateFile)) {
             require $templateFile;
