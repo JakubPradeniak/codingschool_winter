@@ -8,6 +8,7 @@ www/ - přístup z internetu
     obrázky
     ...
     index.php
+    .htaccess -> bez RewriteBase
 
 App/
 .env

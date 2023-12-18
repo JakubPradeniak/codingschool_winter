@@ -7,6 +7,8 @@ namespace App\Routes;
 enum Routes: string
 {
     case Homepage = '/';
+    case Login = '/prihlaste-se';
+    case Register = '/registrace';
     case EditTodo = '/ukol/{id}/uprava';
     case AppError = '/chyba';
 }

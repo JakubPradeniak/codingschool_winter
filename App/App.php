@@ -9,8 +9,10 @@ use App\AppCore\Exceptions\RouteNotFoundException;
 use App\AppCore\Routing\Router;
 use App\AppCore\Utils\EnvParser;
 use App\AppCore\View\View;
+use App\Controllers\RegisterController;
 use App\Routes\Routes;
 use Closure;
+use App\Controllers\HomepageController;
 
 class App {
     private Router $router;
@@ -35,10 +37,11 @@ class App {
 
     private function registerRoutes(): void
     {
-        $this->router->get(Routes::Homepage, Closure::fromCallable(
-            function() {
-                View::make('Homepage');
-            }));
+        $this->router->get(Routes::Homepage, [HomepageController::class, 'index']);
+
+        $this->router
+            ->get(Routes::Register, [RegisterController::class, 'create'])
+            ->post(Routes::Register, [RegisterController::class, 'store']);
     }
 
     public function run(): void

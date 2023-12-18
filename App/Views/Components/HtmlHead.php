@@ -10,6 +10,6 @@
 
     <link type="text/css" rel="stylesheet" href="<?= __APP_RESOURCES__?>style/style.css">
 
-    <title><?= isset($this->data['title']) ? "$this->data['title'] | " : '' ?>Úkoly</title>
+    <title><?= isset($this->data['title']) ? $this->data['title'] . ' | ' : '' ?>Úkoly</title>
 </head>
 <body>
