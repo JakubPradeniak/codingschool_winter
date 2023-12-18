@@ -8,6 +8,7 @@ use App\AppCore\Exceptions\EnvFileNotFoundException;
 use App\AppCore\Exceptions\RouteNotFoundException;
 use App\AppCore\Routing\Router;
 use App\AppCore\Utils\EnvParser;
+use App\AppCore\View\View;
 use App\Routes\Routes;
 use Closure;
 
@@ -17,7 +18,6 @@ class App {
     public function __construct()
     {
         session_start();
-        define('__APP_ROOT__', $_SERVER['DOCUMENT_ROOT'] . '/');
 
         try {
             EnvParser::parse("../.env");
@@ -27,6 +27,9 @@ class App {
             die();
         }
 
+        define('__APP_ROOT__', $_SERVER['DOCUMENT_ROOT'] . '/');
+        define('__APP_RESOURCES__', getenv('APP_DOMAIN') . getenv('APP_SUB_FOLDERS') . 'Resources/');
+
         $this->router = new Router();
     }
 
@@ -34,7 +37,7 @@ class App {
     {
         $this->router->get(Routes::Homepage, Closure::fromCallable(
             function() {
-                echo "Hlavní stránka";
+                View::make('Homepage');
             }));
     }
 

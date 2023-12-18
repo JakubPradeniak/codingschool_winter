@@ -10,7 +10,7 @@ class View
 {
     /**
      * @param string $template název šablony
-     * @param array $data data, která budou zobrazena v šabloně - asociativní pole
+     * @param array $data data, která budou zobrazena v šabloně - asociativní pole ['title' => 'Přihlášení']
      */
     public function __construct(
         private readonly string $template,
