@@ -54,13 +54,13 @@ class App {
             ->post(Routes::Login, [LoginController::class, 'store']);
 
         $this->router
-            ->get(Routes::EditTodo, [TodoController::class, 'edit'])
-            ->post(Routes::Todos, [TodoController::class, 'store'])
-            ->patch(Routes::EditTodo, [TodoController::class, 'update'])
-            ->delete(Routes::EditTodo, [TodoController::class, 'destroy']);
+            ->get(Routes::EditTodo, [TodoController::class, 'edit'], true)
+            ->post(Routes::Todos, [TodoController::class, 'store'], true)
+            ->patch(Routes::EditTodo, [TodoController::class, 'update'], true)
+            ->delete(Routes::EditTodo, [TodoController::class, 'destroy'], true);
 
         $this->router
-            ->get(Routes::Todos, [TodoController::class, 'index']);
+            ->get(Routes::Todos, [TodoController::class, 'index'], true);
     }
 
     public function run(): void
