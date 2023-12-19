@@ -10,6 +10,7 @@ use App\AppCore\Routing\Router;
 use App\AppCore\Utils\EnvParser;
 use App\AppCore\View\View;
 use App\Controllers\LoginController;
+use App\Controllers\LogoutController;
 use App\Controllers\RegisterController;
 use App\Controllers\TodoController;
 use App\Routes\Routes;
@@ -52,6 +53,9 @@ class App {
         $this->router
             ->get(Routes::Login, [LoginController::class, 'create'])
             ->post(Routes::Login, [LoginController::class, 'store']);
+
+        $this->router
+            ->get(Routes::Logout, [LogoutController::class, 'destroy']);
 
         $this->router
             ->get(Routes::EditTodo, [TodoController::class, 'edit'], true)

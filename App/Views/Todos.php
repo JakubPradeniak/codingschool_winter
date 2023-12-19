@@ -13,7 +13,7 @@ include "Components/HtmlHead.php";
                     <input type="text" name="content" class="input" placeholder="Nový úkol" required>
                     <input type="submit" value="Vytvořit úkol" class="button">
                 </form>
-                <a href="#" class="logout nav-link">Odhlásit se</a>
+                <a href="<?= Url::create(Routes::Logout)?>" class="logout nav-link">Odhlásit se</a>
             </section>
             <section class="todos">
             <?php

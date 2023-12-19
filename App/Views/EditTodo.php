@@ -15,7 +15,7 @@ include "Components/HtmlHead.php";
                     </svg>
                 </a>
                 <h1>Úprava úkolu</h1>
-                <a href="#" class="logout">Odhlásit se</a>
+                <a href="<?= Url::create(Routes::Logout)?>" class="logout">Odhlásit se</a>
             </section>
             <section>
                 <?php

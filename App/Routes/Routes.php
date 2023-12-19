@@ -8,6 +8,7 @@ enum Routes: string
 {
     case Homepage = '/';
     case Login = '/prihlaste-se';
+    case Logout = '/odhlasit-se';
     case Register = '/registrace';
     case Todos = '/ukoly';
     case EditTodo = '/ukol/{id}/uprava';
