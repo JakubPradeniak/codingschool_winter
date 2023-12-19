@@ -25,8 +25,7 @@ class App {
         try {
             EnvParser::parse("../.env");
         } catch(EnvFileNotFoundException $e) {
-            // TODO: zobrazit správnou šablonu
-            echo "Chyba aplikace...";
+            View::make('AppError');
             die();
         }
 
@@ -39,6 +38,11 @@ class App {
     private function registerRoutes(): void
     {
         $this->router->get(Routes::Homepage, [HomepageController::class, 'index']);
+        $this->router->get(Routes::AppError, Closure::fromCallable(
+            function () {
+                View::make('AppError');
+            }
+        ));
 
         $this->router
             ->get(Routes::Register, [RegisterController::class, 'create'])
@@ -61,8 +65,7 @@ class App {
             $this->router->resolveRequest();
         } catch (RouteNotFoundException $e) {
             http_response_code(404);
-            // TODO: zobrazit správnou šablonu
-            echo "Stránka nenalezena!";
+            View::make('NotFound');
         }
     }
 }

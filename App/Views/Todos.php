@@ -61,8 +61,8 @@ include "Components/HtmlHead.php";
                   <?php
 
                   if ($date !== $todo->date_created) {
-                      echo '</div>'; // todo-items
-                      echo '</div>'; // todo-list
+                      echo '</div>'; // div-items
+                      echo '</div>'; // div-list
                   }
                 }
             } else {
