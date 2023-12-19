@@ -61,7 +61,7 @@ include "Components/HtmlHead.php";
         <div class="close-dialog-wrapper">
             <span class="close-dialog">✕</span>
         </div>
-        <form action="<?= Url::create(Routes::Login)?>" method="post" class="panel-form panel-form--dialog">
+        <form action="<?= Url::create(Routes::RequestPasswordRecovery)?>" method="post" class="panel-form panel-form--dialog">
             <label for="reg-email" class="input-label">Registrační email</label>
             <input type="email" name="email" id="reg-email" class="input" value="<?= isset($this->data['formData']) ? $this->data['formData']['email'] : '' ?>" required>
             <input type="submit" value="Onnovit zapomenuté heslo" class="button button--full button--dialog">

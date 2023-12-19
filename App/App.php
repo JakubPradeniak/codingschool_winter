@@ -11,6 +11,7 @@ use App\AppCore\Utils\EnvParser;
 use App\AppCore\View\View;
 use App\Controllers\LoginController;
 use App\Controllers\LogoutController;
+use App\Controllers\PasswordRecoveryController;
 use App\Controllers\RegisterController;
 use App\Controllers\TodoController;
 use App\Routes\Routes;
@@ -56,6 +57,13 @@ class App {
 
         $this->router
             ->get(Routes::Logout, [LogoutController::class, 'destroy']);
+
+        $this->router
+            ->post(Routes::RequestPasswordRecovery, [PasswordRecoveryController::class, 'store']);
+
+        $this->router
+            ->get(Routes::PasswordRecovery, [PasswordRecoveryController::class, 'edit'])
+            ->patch(Routes::PasswordRecovery, [PasswordRecoveryController::class, 'update']);
 
         $this->router
             ->get(Routes::EditTodo, [TodoController::class, 'edit'], true)
