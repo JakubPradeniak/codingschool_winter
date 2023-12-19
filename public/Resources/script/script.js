@@ -169,7 +169,26 @@ function validateForm(formName) {
     return isValid;
 }
 
+function editFormButtons() {
+    const deleteButton = document.getElementsByClassName('delete')[0];
+    const editButtons = document.getElementsByClassName('edit');
+    const method = document.getElementById('method');
+
+    if(method) {
+        deleteButton.addEventListener('click', () => {
+            method.value = 'DELETE';
+        })
+
+        for (const button of editButtons) {
+            button.addEventListener('click', () => {
+                method.value = 'PATCH';
+            })
+        }
+    }
+}
+
 // Počkáme na dokončení konstrukce DOMu.
 document.addEventListener('DOMContentLoaded', () => {
     handleDialogOpen();
+    editFormButtons();
 });
