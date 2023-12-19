@@ -10,6 +10,7 @@ use App\AppCore\Routing\Router;
 use App\AppCore\Utils\EnvParser;
 use App\AppCore\View\View;
 use App\Controllers\RegisterController;
+use App\Controllers\TodoController;
 use App\Routes\Routes;
 use Closure;
 use App\Controllers\HomepageController;
@@ -42,6 +43,11 @@ class App {
         $this->router
             ->get(Routes::Register, [RegisterController::class, 'create'])
             ->post(Routes::Register, [RegisterController::class, 'store']);
+
+        $this->router
+            ->get(Routes::EditTodo, [TodoController::class, 'edit'])
+            ->patch(Routes::EditTodo, [TodoController::class, 'update'])
+            ->delete(Routes::EditTodo, [TodoController::class, 'destroy']);
     }
 
     public function run(): void

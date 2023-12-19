@@ -20,7 +20,7 @@ class Url
             $regexArray = [];
             $values = [];
             foreach ($params as $key => $value) {
-                $regexArray[] = "/{$key}/";
+                $regexArray[] = '/{' . $key. '}/';
                 $values[] = $value;
             }
 
