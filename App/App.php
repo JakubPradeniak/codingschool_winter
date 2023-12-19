@@ -50,12 +50,12 @@ class App {
 
         $this->router
             ->get(Routes::EditTodo, [TodoController::class, 'edit'])
+            ->post(Routes::Todos, [TodoController::class, 'store'])
             ->patch(Routes::EditTodo, [TodoController::class, 'update'])
             ->delete(Routes::EditTodo, [TodoController::class, 'destroy']);
 
         $this->router
-            ->get(Routes::Todos, [TodoController::class, 'index'])
-            ->post(Routes::Todos, [TodoController::class, 'store']);
+            ->get(Routes::Todos, [TodoController::class, 'index']);
     }
 
     public function run(): void

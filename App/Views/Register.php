@@ -36,17 +36,20 @@ include "Components/HtmlHead.php";
             }
             ?>
             <form name="register" action="<?= Url::create(Routes::Register)?>" method="post" class="panel-form" onsubmit="return validateForm('register')" novalidate>
-                <label for="email" class="input-label">Email</label>
-                <input type="email" name="email" id="email" class="input" value="<?= isset($this->data['formData']) ? $this->data['formData']['email'] : '' ?>" required>
-                <label for="password" class="input-label">Heslo</label>
-                <input type="password" name="password" id="password" class="input" required>
-                <label for="confirm-password" class="input-label">Heslo znovu</label>
-                <input type="password" name="confirm-password" id="confirm-password" class="input" data-compare="password" data-message="Heslo a Heslo znovu se neshodují." required>
-                <label for="terms" class="checkbox-label">
-                    <input type="checkbox" name="terms" id="terms" class="checkbox" required>
-                    <span>Souhlasím s <a href="#" class="link">podmínkami použití</a> aplikace</span>
-                </label>
-                <input type="submit" value="Vytvořit účet" class="button button--right">
+              <label for="email" class="input-label">Email</label>
+              <input type="email" name="email" id="email" class="input" value="<?= isset($this->data['formData']) ? $this->data['formData']['email'] : '' ?>" required>
+              <label for="username" class="input-label">Uživateslké jméno</label>
+              <input type="text" name="username" id="username" class="input" value="<?= isset($this->data['formData']) ? $this->data['formData']['username'] : '' ?>" required>
+
+              <label for="password" class="input-label">Heslo</label>
+              <input type="password" name="password" id="password" class="input" required>
+              <label for="confirm-password" class="input-label">Heslo znovu</label>
+              <input type="password" name="confirm-password" id="confirm-password" class="input" data-compare="password" data-message="Heslo a Heslo znovu se neshodují." required>
+              <label for="terms" class="checkbox-label">
+                  <input type="checkbox" name="terms" id="terms" class="checkbox" required>
+                  <span>Souhlasím s <a href="#" class="link">podmínkami použití</a> aplikace</span>
+              </label>
+              <input type="submit" value="Vytvořit účet" class="button button--right">
             </form>
 
             <p class="panel-link">
