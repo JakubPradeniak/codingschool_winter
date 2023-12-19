@@ -25,6 +25,20 @@ class TodoController extends Controller
         $this->model = new TodoModel($this->connection);
     }
 
+    public function index(): void
+    {
+        $todos = $this->model->getAllTodos();
+
+        View::make('Todos', [
+            'title' => 'Všechny úkoly',
+            'todos' => $todos,
+            'successMessage' => Persist::get('successMessage'),
+            'errorMessage' => Persist::get('errorMessage'),
+        ]);
+
+        Persist::delete(['successMessage', 'errorMessage']);
+    }
+
     public function edit(array $urlParams): void
     {
         $todo = $this->model->getTodo(intval($urlParams['id']));
@@ -37,6 +51,20 @@ class TodoController extends Controller
         ]);
 
         Persist::delete(['successMessage', 'errorMessage']);
+    }
+
+    public function store(): void
+    {
+        $validationResult = TodoValidation::validate($_POST);
+
+        if($validationResult !== true) {
+            Persist::set('errorMessage', $validationResult);
+            Url::redirect(Routes::Todos);
+        }
+
+        $this->model->createTodo(Sanitize::process($_POST['content']));
+        Persist::set('successMessage', 'create');
+        Url::redirect(Routes::Todos);
     }
 
     public function update(array $urlParams): void
@@ -62,7 +90,7 @@ class TodoController extends Controller
     public function destroy(array $urlParams): void
     {
         $this->model->delete(intval($urlParams['id']));
-        Persist::set('delete', 'success');
+        Persist::set('successMessage', 'delete');
         Url::redirect(Routes::Todos);
     }
 }

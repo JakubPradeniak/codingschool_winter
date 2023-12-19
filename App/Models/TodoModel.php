@@ -11,6 +11,18 @@ use PDO;
 
 class TodoModel extends Model
 {
+    public function getAllTodos()
+    {
+        try {
+            // TODO: SELECT * FROM `todos` WHERE `user_id`=? ORDER BY `id` DESC
+            $statement = $this->connection->prepare('SELECT * FROM `todos` ORDER BY `id` DESC');
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        } catch(\PDOException $e) {
+            Url::redirect(Routes::AppError);
+        }
+    }
+
     public function getTodo(int $id): object|false
     {
         try {
@@ -51,6 +63,17 @@ class TodoModel extends Model
             // TODO: UPDATE `todos` SET `content`=? WHERE `id`=? AND `user_id`=?
             $statement = $this->connection->prepare('UPDATE `todos` SET `content`=? WHERE `id`=?');
             $statement->execute([$content, $id]);
+        } catch(\PDOException $e) {
+            Url::redirect(Routes::AppError);
+        }
+    }
+
+    public function createTodo(string $content): void
+    {
+        try {
+            $statement = $this->connection->prepare('INSERT INTO `todos`(`user_id`, `content`) VALUES (?, ?)');
+            // TODO: použít ID přihlášeného uživatele
+            $statement->execute([1, $content]);
         } catch(\PDOException $e) {
             Url::redirect(Routes::AppError);
         }

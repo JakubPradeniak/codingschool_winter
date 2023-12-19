@@ -26,12 +26,12 @@ include "Components/HtmlHead.php";
                 </p>
                 <?php
                 if (isset($this->data['errorMessage'])) {
-                    echo '<div class="message message--success">Obsah úkoly nesmí být prázdný.</div>';
+                    echo '<div class="message message--success">Obsah úkolu nesmí být prázdný.</div>';
                 }
 
                 if (isset($this->data['successMessage'])) {
                     echo '<div class="message message--success">';
-                    switch ($this->data['errorMessage']) {
+                    switch ($this->data['successMessage']) {
                         case 'done':
                             echo 'Úkol byl nastaven jako hotový.';
                             break;
@@ -57,7 +57,7 @@ include "Components/HtmlHead.php";
                 </form>
                 <?php } else {
                     echo '<p>Úkol se nepodařilo načíst.</p>';
-                  }?>
+                }?>
             </section>
         </main>
         <?php

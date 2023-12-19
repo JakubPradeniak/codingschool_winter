@@ -48,6 +48,10 @@ class App {
             ->get(Routes::EditTodo, [TodoController::class, 'edit'])
             ->patch(Routes::EditTodo, [TodoController::class, 'update'])
             ->delete(Routes::EditTodo, [TodoController::class, 'destroy']);
+
+        $this->router
+            ->get(Routes::Todos, [TodoController::class, 'index'])
+            ->post(Routes::Todos, [TodoController::class, 'store']);
     }
 
     public function run(): void
