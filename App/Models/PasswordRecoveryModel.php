@@ -35,7 +35,7 @@ class PasswordRecoveryModel extends Model
 
             $link = Url::create(Routes::PasswordRecovery, ['token' => $token]);
 
-            return Email::send($email, getenv('APP_EMAIL'), 'Žádost o reset hesla', 'Pro nastavení nového hesla kliněte na následujícíc odkaz: <a href="' . $link . '">' . $link . '</a>');
+            return Email::send($email, getenv('APP_EMAIL'), 'Žádost o reset hesla', 'Pro nastavení nového hesla kliněte na následující odkaz: <a href="' . $link . '">' . $link . '</a>');
         } catch(PDOException $e) {
             Url::redirect(Routes::AppError);
         }
