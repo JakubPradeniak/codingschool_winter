@@ -25,6 +25,9 @@ include "Components/HtmlHead.php";
                     case 'registration':
                         echo 'Registrace proběhla úspěšně, nyní se můžete přihlásit.';
                         break;
+                    case 'passwordChanged':
+                        echo 'Vaše heslo bylo změněno, nyní se můžete přihlásit.';
+                        break;
                     default:
                         echo 'Zkontrolujte svůj email, odeslali jsem vám odkaz pro obnovení hesla.';
                 }

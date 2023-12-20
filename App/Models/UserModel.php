@@ -33,4 +33,14 @@ class UserModel extends Model
             Url::redirect(Routes::AppError);
         }
     }
+
+    public function changePassword(int $userId, string $passwordHash): void
+    {
+        try {
+            $statement = $this->connection->prepare('UPDATE `users` SET `password`=? WHERE `id`=?');
+            $statement->execute([$passwordHash, $userId]);
+        } catch(PDOException $e) {
+            Url::redirect(Routes::AppError);
+        }
+    }
 }
