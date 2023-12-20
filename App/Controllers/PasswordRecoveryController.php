@@ -97,7 +97,10 @@ class PasswordRecoveryController extends Controller
 
         if ($validationResult === true) {
             $tokenData = $this->passwordRecoveryModel->getEntry($urlParams['token']);
+            // nastavení nového hesla
             $this->userModel->changePassword($tokenData->user_id, password_hash($sanitizedData['password'], PASSWORD_BCRYPT));
+            // odstranění tokenu -> už ho nepotřebujeme
+            $this->passwordRecoveryModel->deleteEntry($urlParams['token']);
 
             Persist::set('successMessage', 'passwordChanged');
             Url::redirect(Routes::Login);
